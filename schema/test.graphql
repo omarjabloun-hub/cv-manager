@@ -1,0 +1,38 @@
+mutation {
+    createCv(createCvInput: {
+        name: "Cv 1"
+        firstname: "Cv 1 description"
+        age: 30
+        cin: "Cv 1 cin"
+        job: "Cv 1 job"
+        path: "Cv 1 path"
+    }) {
+        id
+        name
+        firstname
+        age
+        cin
+        job
+        path
+    }
+}
+
+mutation {
+    updateCv(updateCvInput: {
+        id: "5f9b1b3b9b0b3e1b1c3b0b3e"
+        name: "Cv 1"
+        firstname: "Cv 1 description"
+        age: 30
+        cin: "Cv 1 cin"
+        job: "Cv 1 job"
+        path: "Cv 1 path"
+    }) {
+        id
+        name
+        firstname
+        age
+        cin
+        job
+        path
+    }
+}

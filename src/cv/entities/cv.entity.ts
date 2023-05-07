@@ -38,17 +38,14 @@ export class Cv {
   @Column()
   @Field(() => String, { description: 'path of the user' })
   path: string;
-  @ManyToMany(() => Skill, (skill) => skill.cvs,  { eager: true })
 
-  @ManyToMany(() => Skill, (skill) => skill.cvs)
+  @ManyToMany(() => Skill, (skill) => skill.cvs,  { eager: true })
   @JoinTable()
   @Field( type => [Skill], { description: 'skills of the user' } ,)
   skills: Skill[];
 
-  @ManyToOne(() => User, (user) => user.cvs)
-  @Field( type => User, { description: 'owner of the cv' })
   @ManyToOne( type => User, user => user.cvs , { eager: true})
-  @JoinColumn( { name : "userId"})
+  @Field( type => User, { description: 'owner of the cv' })
   user: User;
 
 }

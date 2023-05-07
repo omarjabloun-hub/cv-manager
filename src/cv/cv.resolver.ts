@@ -32,17 +32,20 @@ export class CvResolver {
     @Mutation(() => Cv)
     updateCv(
       //@Args('id') id:number,
-      @Args('updateCvInput') updateCvInput: UpdateCvDto) {
-        const updatedCv = this.cvService.update(updateCvInput.id, updateCvInput);
+      @Args('updateCvInput') updateCvInput: UpdateCvDto) : Promise<UpdateCvDto> {
+        const result = this.cvService.update(updateCvInput.id, updateCvInput);
+        const updatedCv = this.cvService.findOne(updateCvInput.id);
         pubSub.publish('cvUpdated', { cvUpdated: updatedCv });
-        return updatedCv;
+        return updatedCv
     }
 
-    @Mutation(() => Cv)
-    removeCv(@Args('cvId') cvId: number) {
-        const deletedCv = this.cvService.remove(cvId);
+    @Mutation(() => String)
+    removeCv(@Args('cvId') cvId: number) : String {
+        const deletedCv = this.cvService.findOne(cvId);
+
+        const  result = this.cvService.remove(cvId);
         pubSub.publish('cvDeleted', { cvDeleted: deletedCv });
-        return deletedCv;
+        return `cv with id ${cvId} deleted successfully`;
     }
 
     @Subscription(() => Cv, {
@@ -72,7 +75,7 @@ export class CvResolver {
 
 
 
-    @Subscription(() => Cv, {
+    @Subscription(() => String, {
         name: 'cvDeleted',
         filter: (payload, variables) => {
             // You can add a filter here to filter out the events

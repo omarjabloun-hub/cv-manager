@@ -63,3 +63,28 @@ type Query {
   testing: String!
   skill(skill: String!): Skill!
 }
+
+type Mutation {
+  createCv(createCvInput: CreateCvDto!): Cv!
+  updateCv(updateCvInput: UpdateCvDto!): Cv!
+  removeCv(cvId: Float!): Cv!
+}
+
+input CreateCvDto {
+  name: String!
+  firstname: String!
+  age: Float!
+  cin: String!
+  job: String!
+  path: String!
+}
+
+input UpdateCvDto {
+  id: Int
+  name: String
+  firstname: String
+  age: Float
+  cin: String
+  job: String
+  path: String
+}

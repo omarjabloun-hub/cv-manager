@@ -10,27 +10,50 @@ type Skill {
   designation: String!
 }
 
-type Cv {
+type User {
   """id of the user"""
   id: Int!
 
-  """name of the user"""
+  """email of the user"""
+  email: String!
+
+  """password of the user"""
+  password: String!
+
+  """username of the user"""
+  userName: String!
+
+  """cvs of the user"""
+  cvs: [Cv!]!
+}
+
+type Cv {
+  """id of the cv"""
+  id: Int!
+
+  """name in the cv"""
   name: String!
 
-  """firstname of the user"""
+  """firstname in the cv"""
   firstname: String!
 
-  """age of the user"""
+  """age in the cv"""
   age: Int!
 
-  """cin of the user"""
+  """cin in the cv"""
   cin: String!
 
-  """job of the user"""
+  """job in the cv"""
   job: String!
 
   """path of the user"""
   path: String!
+
+  """skills of the user"""
+  skills: [Skill!]!
+
+  """owner of the cv"""
+  user: User!
 }
 
 type Query {
@@ -44,7 +67,7 @@ type Query {
 type Mutation {
   createCv(createCvInput: CreateCvDto!): Cv!
   updateCv(updateCvInput: UpdateCvDto!): Cv!
-  removeCv(cvId: Float!): Cv!
+  removeCv(cvId: Float!): String!
 }
 
 input CreateCvDto {
@@ -69,5 +92,5 @@ input UpdateCvDto {
 type Subscription {
   cvAdded: Cv!
   cvUpdated: Cv!
-  cvDeleted: Cv!
+  cvDeleted: String!
 }
