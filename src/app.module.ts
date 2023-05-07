@@ -16,7 +16,7 @@ import { GraphQLModule } from '@nestjs/graphql';
     UserModule,
     SkillModule,
     GraphQLModule.forRoot({
-      autoSchemaFile: './schema.gql',
+      autoSchemaFile: 'schema/schema.graphql',
       debug: true,
       playground: true,
     }),

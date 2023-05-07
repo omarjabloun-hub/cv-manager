@@ -4,7 +4,7 @@ import {CvService} from "./cv.service";
 import {Query} from "@nestjs/common";
 
 @Resolver(() => Cv)
-export class UsersResolver {
+export class CvResolver {
     constructor(private readonly cvService: CvService) {
     }
 
