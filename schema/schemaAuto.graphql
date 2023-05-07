@@ -1,0 +1,65 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Skill {
+  """id of the user"""
+  id: Int!
+
+  """name of the user"""
+  designation: String!
+}
+
+type User {
+  """id of the user"""
+  id: Int!
+
+  """email of the user"""
+  email: String!
+
+  """password of the user"""
+  password: String!
+
+  """username of the user"""
+  userName: String!
+
+  """cvs of the user"""
+  cvs: [Cv!]!
+}
+
+type Cv {
+  """id of the cv"""
+  id: Int!
+
+  """name in the cv"""
+  name: String!
+
+  """firstname in the cv"""
+  firstname: String!
+
+  """age in the cv"""
+  age: Int!
+
+  """cin in the cv"""
+  cin: String!
+
+  """job in the cv"""
+  job: String!
+
+  """path of the user"""
+  path: String!
+
+  """skills of the user"""
+  skills: [Skill!]!
+
+  """owner of the cv"""
+  user: User!
+}
+
+type Query {
+  cvs: [Cv!]!
+  cv(cvId: Float!): Cv!
+  skills: [Skill!]!
+  testing: String!
+  skill(skill: String!): Skill!
+}

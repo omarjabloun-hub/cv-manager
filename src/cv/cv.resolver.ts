@@ -31,6 +31,7 @@ export class CvResolver {
 
     @Mutation(() => Cv)
     updateCv(
+      //@Args('id') id:number,
       @Args('updateCvInput') updateCvInput: UpdateCvDto) {
         const updatedCv = this.cvService.update(updateCvInput.id, updateCvInput);
         pubSub.publish('cvUpdated', { cvUpdated: updatedCv });

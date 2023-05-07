@@ -18,5 +18,6 @@ export class User {
   @Field(() => String, { description: 'username of the user' })
   userName: string;
   @OneToMany(() => Cv, (cv) => cv.user)
+  @Field( type => [Cv], { description: 'cvs of the user' })
   cvs: Cv[];
 }

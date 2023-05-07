@@ -2,48 +2,53 @@ import { Skill } from '../../skill/entities/skill.entity';
 import { User } from '../../user/entities/user.entity';
 import {
   Column,
-  Entity,
+  Entity, JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { Field, Int, ObjectType } from "@nestjs/graphql";
+  PrimaryGeneratedColumn
+} from "typeorm";
+import { Field, ID, Int, ObjectType, Parent, ResolveField } from "@nestjs/graphql";
 @Entity()
 @ObjectType()
 export class Cv {
   @PrimaryGeneratedColumn()
-  @Field(() => Int, { description: 'id of the user' })
+  @Field(() => Int, { description: 'id of the cv' })
   id: number;
 
   @Column()
-  @Field(() => String, { description: 'name of the user' })
+  @Field(() => String, { description: 'name in the cv' })
   name: string;
 
   @Column()
-  @Field(() => String, { description: 'firstname of the user' })
+  @Field(() => String, { description: 'firstname in the cv' })
   firstname: string;
 
   @Column()
-  @Field(() => Int, { description: 'age of the user' })
+  @Field(() => Int, { description: 'age in the cv' })
   age: number;
-
-  @Field(() => String, { description: 'cin of the user' })
+  @Field(() => String, { description: 'cin in the cv' })
   @Column()
   cin: string;
 
   @Column()
-  @Field(() => String, { description: 'job of the user' })
+  @Field(() => String, { description: 'job in the cv' })
   job: string;
 
   @Column()
   @Field(() => String, { description: 'path of the user' })
   path: string;
+  @ManyToMany(() => Skill, (skill) => skill.cvs,  { eager: true })
 
   @ManyToMany(() => Skill, (skill) => skill.cvs)
   @JoinTable()
+  @Field( type => [Skill], { description: 'skills of the user' } ,)
   skills: Skill[];
 
   @ManyToOne(() => User, (user) => user.cvs)
+  @Field( type => User, { description: 'owner of the cv' })
+  @ManyToOne( type => User, user => user.cvs , { eager: true})
+  @JoinColumn( { name : "userId"})
   user: User;
+
 }

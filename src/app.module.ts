@@ -20,6 +20,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       driver : ApolloDriver,
       installSubscriptionHandlers:true,
       autoSchemaFile: 'schema/schema.graphql',
+      autoSchemaFile: 'schema/schemaAuto.graphql',
       playground: true,
     }),
     TypeOrmModule.forRoot({
