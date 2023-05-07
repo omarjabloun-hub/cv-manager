@@ -10,7 +10,32 @@ type Skill {
   designation: String!
 }
 
+type Cv {
+  """id of the user"""
+  id: Int!
+
+  """name of the user"""
+  name: String!
+
+  """firstname of the user"""
+  firstname: String!
+
+  """age of the user"""
+  age: Int!
+
+  """cin of the user"""
+  cin: String!
+
+  """job of the user"""
+  job: String!
+
+  """path of the user"""
+  path: String!
+}
+
 type Query {
+  cvs: [Cv!]!
+  cv(cvId: Float!): Cv!
   skills: [Skill!]!
   testing: String!
   skill(skill: String!): Skill!

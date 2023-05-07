@@ -22,7 +22,7 @@ export class UserService {
   async findOne(body: CreateUserDto) {
     return await this.userRepo.findOne({ where: body });
   }
-  async findAll() {
+  async  findAll() {
     return await this.userRepo.find();
   }
 
