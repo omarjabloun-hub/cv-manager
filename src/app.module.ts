@@ -9,11 +9,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
 import { Cv } from './cv/entities/cv.entity';
 import { Skill } from './skill/entities/skill.entity';
+import { GraphQLModule } from '@nestjs/graphql';
 @Module({
   imports: [
     CvModule,
     UserModule,
     SkillModule,
+    GraphQLModule.forRoot({
+      autoSchemaFile: './schema.gql',
+      debug: true,
+      playground: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
