@@ -15,7 +15,7 @@ export class CvService {
     return this.cvRepo.save(cvs);
   }
 
-  findAll() {
+  findAll(): Promise<Array<Cv>>  {
     return this.cvRepo.find();
   }
 
