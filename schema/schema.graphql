@@ -1,0 +1,17 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Skill {
+  """id of the user"""
+  id: Int!
+
+  """name of the user"""
+  designation: String!
+}
+
+type Query {
+  skills: [Skill!]!
+  testing: String!
+  skill(skill: String!): Skill!
+}

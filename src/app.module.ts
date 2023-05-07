@@ -10,14 +10,15 @@ import { User } from './user/entities/user.entity';
 import { Cv } from './cv/entities/cv.entity';
 import { Skill } from './skill/entities/skill.entity';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 @Module({
   imports: [
     CvModule,
     UserModule,
     SkillModule,
-    GraphQLModule.forRoot({
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver : ApolloDriver,
       autoSchemaFile: 'schema/schema.graphql',
-      debug: true,
       playground: true,
     }),
     TypeOrmModule.forRoot({

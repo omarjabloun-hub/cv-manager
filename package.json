@@ -23,6 +23,8 @@
     "dev": "ts-node src/main.ts"
   },
   "dependencies": {
+    "@apollo/server": "^4.7.1",
+    "@nestjs/apollo": "^11.0.5",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/graphql": "^11.0.5",
@@ -30,12 +32,12 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/typeorm": "^9.0.1",
     "@ngneat/falso": "^6.4.0",
+    "graphql": "^16.6.0",
+    "graphql-yoga": "^3.9.1",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
-    "typeorm": "^0.3.14",
-    "graphql": "^15.5.1",
-    "graphql-yoga": "^3.9.1"
+    "typeorm": "^0.3.14"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
