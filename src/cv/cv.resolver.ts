@@ -1,14 +1,14 @@
-import {Args, Resolver} from "@nestjs/graphql";
+import {Args, Mutation, Query, Resolver} from "@nestjs/graphql";
 import {Cv} from "./entities/cv.entity";
 import {CvService} from "./cv.service";
-import {Query} from "@nestjs/common";
+import {CreateCvDto} from "./dto/create-cv.dto";
 
 @Resolver(() => Cv)
-export class UsersResolver {
+export class CvResolver {
     constructor(private readonly cvService: CvService) {
     }
 
-    /*@Query(() => [Cv], { name: 'cv' })
+    @Query(() => [Cv] , { name: 'cvs' })
     findAll() {
         return this.cvService.findAll();
     }
