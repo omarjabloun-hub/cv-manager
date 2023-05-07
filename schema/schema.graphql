@@ -53,7 +53,7 @@ type Cv {
   skills: [Skill!]!
 
   """owner of the cv"""
-  user: User!
+  user: User
 }
 
 type Query {

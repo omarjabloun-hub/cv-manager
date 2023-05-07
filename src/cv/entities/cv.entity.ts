@@ -45,7 +45,7 @@ export class Cv {
   skills: Skill[];
 
   @ManyToOne( type => User, user => user.cvs , { eager: true})
-  @Field( type => User, { description: 'owner of the cv' })
+  @Field( type => User, { description: 'owner of the cv' , nullable: true})
   user: User;
 
 }
