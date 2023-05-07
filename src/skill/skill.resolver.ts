@@ -8,10 +8,10 @@ import { SkillService } from "./skill.service";
 export class SkillsResolver {
   constructor(private readonly skillService: SkillService) {}
 
-  @Mutation(() => Skill)
+  /*@Mutation(() => Skill)
   createSkill(@Args('createSkillInput') createUserInput : CreateSkillDto ) {
     return this.skillService.create(createUserInput);
-  }
+  }*/
 
   @Query(() => [Skill], { name: 'skills' })
   findAll() {
@@ -19,7 +19,9 @@ export class SkillsResolver {
   }
 
   @Query( () => String , {name : 'testing'})
-
+  testing(){
+    return "testing OK";
+  }
 
   @Query(() => Skill, { name: 'skill' })
   findOne(@Args('skill', { type: () => String }) skillId: number) {

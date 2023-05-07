@@ -33,6 +33,6 @@ type Query {
         getUsers: String
         getCvs: [Cv]
         skills: [Skill]
-
+        testing: String
 
 }
