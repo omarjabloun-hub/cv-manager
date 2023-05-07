@@ -17,7 +17,6 @@ export class CvResolver {
     findOne(@Args('cvId') cvId: number) {
         return this.cvService.findOne(cvId);
     }
-*/
 
 
 }
