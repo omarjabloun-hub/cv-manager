@@ -18,6 +18,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
     SkillModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver : ApolloDriver,
+      installSubscriptionHandlers:true,
       autoSchemaFile: 'schema/schema.graphql',
       playground: true,
     }),

@@ -65,3 +65,9 @@ input UpdateCvDto {
   job: String
   path: String
 }
+
+type Subscription {
+  cvAdded: Cv!
+  cvUpdated: Cv!
+  cvDeleted: Cv!
+}
