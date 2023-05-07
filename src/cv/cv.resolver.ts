@@ -41,11 +41,11 @@ export class CvResolver {
 
     @Mutation(() => String)
     removeCv(@Args('cvId') cvId: number) : String {
-        const deletedCv = this.cvService.findOne(cvId);
+        const message = `cv with id ${cvId} deleted successfully` ;
 
         const  result = this.cvService.remove(cvId);
-        pubSub.publish('cvDeleted', { cvDeleted: deletedCv });
-        return `cv with id ${cvId} deleted successfully`;
+        pubSub.publish('cvDeleted', { cvDeleted: message });
+        return message;
     }
 
     @Subscription(() => Cv, {

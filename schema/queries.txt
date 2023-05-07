@@ -1,0 +1,125 @@
+query{
+  cvs{
+    id
+    name
+    firstname
+    age
+    cin
+    job
+    path
+
+    skills{
+      designation
+    }
+
+}
+}
+
+/***********/
+
+query{
+  cv(cvId:3){
+    id
+    name
+    firstname
+    age
+    cin
+    job
+    path
+    user{
+      userName
+    }
+    skills{
+      designation
+    }
+
+  }
+}
+/******************/
+
+
+subscription {
+  cvUpdated {
+    id
+    name
+    firstname
+    age
+    cin
+    job
+    path
+  }
+}
+
+
+/**************/
+subscription {
+  cvCreated {
+    id
+    name
+    firstname
+    age
+    cin
+    job
+    path
+  }
+}
+
+/****************/
+mutation {
+  updateCv(
+    updateCvInput: {
+      id: 3
+      name: "Janeeee",
+      firstname: "Doe",
+      age: 25,
+      cin: "654321",
+      job: "Frontend Developer",
+      path: "new/path/to/cv.pdf"
+    }
+  ) {
+
+    name
+    firstname
+    age
+    cin
+    job
+    path
+  }
+}
+
+/***************/
+
+
+mutation{
+  removeCv(cvId:6)
+}
+
+/********/
+
+subscription {
+  cvDeleted
+}
+
+/****************/
+
+
+mutation {
+  createCv(createCvInput: {
+    name: "John"
+    firstname: "Doe"
+    age: 30
+    cin: "123456"
+    job: "Software Developer"
+    path: "path/to/cv.pdf"
+  }) {
+    id
+    name
+    firstname
+    age
+    cin
+    job
+    path
+  }
+}
+
+
